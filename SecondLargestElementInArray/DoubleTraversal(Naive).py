@@ -8,7 +8,7 @@
 
 
 
-def getSecondLargest(arr):
+def getSecondLargest_double_traversal(arr):
     n = len(arr)
     
     largest = -1
@@ -33,12 +33,11 @@ if __name__ == "__main__":
     arr = [10, 10, 10]
     # arr = [12, 35, 1, 10, 34, 1]
     # arr = [10, 5, 10]
-    print(getSecondLargest(arr))
-    
- 
-    
-# Time Complexixty: O(2*n) = O(n),
+    print(getSecondLargest_double_traversal(arr))
+
+
+# Time Complexity: O(2*n) = O(n),
 # as we are traversing the array two times.
 
-# Auxillary space: O(1),
+# Auxiliary space: O(1),
 # as no extra space is required.

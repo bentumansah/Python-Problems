@@ -1,60 +1,131 @@
-## TASK:
+# 🔢 Matrix Multiplication Utility in Python
 
-Write a function (array_mult) that takes two 2D arrays and performs a matrix multiplication, return a new 2D array. Each array should be represented as a list of lists, i.e., as a list of rows, as discussed earlier.
+A compact and flexible Python module that demonstrates two efficient techniques for performing **matrix multiplication**. Whether you're a student, developer, or educator, this tool is perfect for learning and integrating linear algebra operations into your projects.
 
-## EXAMPLE:
+---
 
-> > > M1 = [[1, 2, 3], [-2, 3, 7]]
-> > > M2 = [[1,0,0],[0,1,0],[0,0,1]]
-> > > array_mult(M1, M2)
-> > > [[1, 2, 3], [-2, 3, 7]]
+## ✨ Features
 
-> > > M3 = [[1], [0], [-1]]
-> > > array_mult(M1, M3)
-> > > [[-2], [-9]]
+- 🧮 **Matrix Multiplication**: Multiply two 2D lists (matrices) in pure Python.
+- 🛠️ **Two Implementations**:
+  - **Nested Loop Approach** (classic, educational)
+  - **List Comprehension Approach** (Pythonic and concise)
+- 💡 **No Dependencies**: Built with pure Python — no NumPy required!
+- 📚 **Great for Learning**: Understand both fundamental and modern Python styles.
 
-## BREAKDOWN:
+---
 
-# 1ST APPROACH:
+## 📌 Prerequisites
 
-Matrix Dimensions: The first matrix (A) has dimensions m x n, and the second matrix (B) has dimensions n x p. The resulting matrix will have dimensions m x p.
+- Python 3.6+
+- Two valid matrices where the **number of columns in A equals the number of rows in B**
 
-Dot Product Calculation: For each element in the resulting matrix, compute the dot product of the corresponding row from matrix A and column from matrix B. This involves multiplying corresponding elements and summing the products.
+---
 
-Nested Loops: Use nested loops to iterate over each row of matrix A, each column of matrix B, and each element within the rows and columns to compute the dot product.
+## 1️⃣ Method 1 — Classic Nested Loop Implementation
 
-# MORE INTO IT
+> A step-by-step approach using explicit loops for clarity and control.
 
-Matrix Dimensions: The function first determines the dimensions of the input matrices.The number of rows in the result is the same as the number of rows in matrix A, and the number of columns in the result is the same as the number of columns in matrix B.
+✅ **Example**:
 
-Result Initialization: The result matrix is initialized as an empty list. For each row in matrix A, a new row is created in the result matrix.
+```python
+A = [[1, 2], [3, 4]]
+B = [[5, 6], [7, 8]]
+print(array_mult(A, B))  # Output: [[19, 22], [43, 50]]
+```
 
-Dot Product Calculation: For each element in the result matrix (at position [i][j]), the dot product is computed by iterating over the elements of the corresponding row in matrix A and column in matrix B. This is done using a nested loop where the innermost loop calculates the sum of the products of corresponding elements.
+---
 
-# Efficiency:
+## 2️⃣ Method 2 — List Comprehension Style (Concise & Pythonic)
 
-The time complexity of this approach is O(m*n*p), where m, n, and p are the dimensions of the matrices. This is the standard complexity for matrix multiplication and ensures that each element is processed correctly.
+> Elegant and faster for small to medium matrices using `zip` and comprehensions.
 
-This approach efficiently handles the matrix multiplication using nested loops and dot product calculation, ensuring correctness and clarity.
+✅ **Example**:
 
-## DYNAMISM:
+```python
+A = [[2, 3], [4, 5]]
+B = [[6, 7], [8, 9]]
+print(array_mult(A, B))  # Output: [[36, 41], [64, 73]]
+```
 
-# 2ND APPROACH:
+---
 
-Transpose the Second Matrix: Convert the columns of the second matrix (B) into rows using the zip function. This allows us to access columns of B as rows in the transposed matrix (B_T).
+## 🧠 Performance & Notes
 
-Compute Dot Products with List Comprehensions: For each row in the first matrix (A), compute the dot product with each row in the transposed matrix (B_T), which corresponds to the original columns of B. This is done using nested list comprehensions, making the code concise and readable.
+| Method             | Style            | Time Complexity | Space Complexity |
+| ------------------ | ---------------- | --------------- | ---------------- |
+| Nested Loops       | Classic          | O(n × m × p)    | O(n × p)         |
+| List Comprehension | Pythonic & Clean | O(n × m × p)    | O(n × p)         |
 
-# MORE INTO IT
+- `A`: n × m matrix
+- `B`: m × p matrix
+- Result: n × p matrix
 
-Transposing the Matrix: The zip(\*B) function transposes matrix B, converting its columns into rows. Each resulting tuple from zip is converted to a list to facilitate element-wise operations.
+📝 **Note**: The function assumes all rows are of equal length (well-formed matrices). No internal validation is performed for mismatched sizes.
 
-List Comprehensions:
+---
 
-The outer list comprehension iterates over each row in matrix A.
+## ▶️ Test case
 
-The inner list comprehension iterates over each transposed column (now a row in B_T) of matrix B.
+```python
+if __name__ == "__main__":
+    A = [[1, 2, 3], [4, 5, 6]]
+    B = [[7, 8], [9, 10], [11, 12]]
 
-For each pair of rows (from A and B_T), the dot product is calculated using sum(a \* b for a, b in zip(row_A, col_B)), which sums the products of corresponding elements.
+    print(array_mult(A, B))
+    # Output: [[58, 64], [139, 154]]
+```
 
-This approach efficiently handles the matrix multiplication with a time complexity of O(m*n*p), where m, n, and p are the dimensions of the matrices involved. The use of list comprehensions and transposing makes the code concise and leverages Python's capabilities for clean and readable implementations.
+---
+
+## 🧪 Suggested Enhancements
+
+- Add matrix validation for robustness.
+- Raise exceptions for dimension mismatches.
+- Extend for NumPy backend optionally.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+You can help improve performance, add type annotations, or support sparse matrices.
+
+Steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Commit your changes.
+4. Submit a Pull Request 🚀
+
+---
+
+## 📄 License (MIT)
+
+```
+MIT License
+
+Copyright (c) 2025
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+```
+
+---
+
+**Happy Coding!** 🧮 Let your matrices multiply with elegance.

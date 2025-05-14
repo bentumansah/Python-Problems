@@ -16,4 +16,3 @@ def array_mult(A, B):
             result_row.append(sum_product)
         result.append(result_row)
     return result
-    

@@ -10,7 +10,7 @@
 secondLargest = 0
 
 
-def getSecondLargest(arr):
+def getSecondLargest_sorted(arr):
     n = len(arr)
     
     # Sort the array in non-decreasing order
@@ -32,12 +32,11 @@ if __name__ == "__main__":
     arr = [12, 35, 1, 10, 34, 1]
     # arr = [10, 5, 10]
     # arr = [10, 10, 10]
-    print(getSecondLargest(arr))
-    
-    
-    
+    print(getSecondLargest_sorted(arr))
+
+
 ## Time Complexity: O(n*log(n)),
-# as sorting the arrat takes O(n*log(n)) time
-# and traversing the arrat can take O(n) time in the worst case
+# as sorting the array takes O(n*log(n)) time
+# and traversing the array can take O(n) time in the worst case
 # so total time complexity = (n*log(n) + n) = O(n*log(n))
-# Auxillary space: O(1), as no extra space is required.
+# Auxiliary space: O(1), as no extra space is required.
